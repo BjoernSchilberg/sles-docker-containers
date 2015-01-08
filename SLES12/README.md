@@ -36,4 +36,10 @@
         sudo docker save sles:12-with-repo | gzip > sles12-with-repo.tar.gz
         # later: gunzip sles12-with-repo.tar.gz | sudo docker load
 
+    Then when you've launched a container you can do:
+
+        zypper ar --no-gpgcheck /repos/core-1 sles-core-1 
+        zypper ar --no-gpgcheck /repos/sdk-1 sles-sdk-1
+        # zypper install libopenssl-devel, subversion, etc.
+
 7. Profit!
