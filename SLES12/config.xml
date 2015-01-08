@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<image schemaversion="6.1" name="sles-12-docker-guest">
+  <description type="system">
+    <author>Cyril Rohr</author>
+    <contact>cyril.rohr@gmail.com</contact>
+    <specification>SLES12 docker image</specification>
+  </description>
+  <preferences>
+    <type image="docker" container="os131">
+      <machine>
+        <vmdisk/>
+        <vmnic interface="eth0" mode="veth"/>
+      </machine>
+    </type>
+    <version>1.0.0</version>
+    <packagemanager>zypper</packagemanager>
+    <rpm-check-signatures>false</rpm-check-signatures>
+    <rpm-force>true</rpm-force>
+    <locale>en_US</locale>
+    <keytable>us.map.gz</keytable>
+    <hwclock>utc</hwclock>
+    <timezone>US/Eastern</timezone>
+  </preferences>
+  <users group="root">
+    <user password="$1$wYJUgpM5$RXMMeASDc035eX.NbYWFl0" home="/root" name="root"/>
+  </users>
+  <repository type="yast2">
+    <source path="/mnt"/>
+  </repository>
+  <packages type="image">
+    <package name="coreutils"/>
+    <package name="iputils"/>
+    <package name="sudo"/>
+    <package name="wget"/>
+    <package name="curl"/>
+    <package name="tar"/>
+    <package name="gcc"/>
+    <package name="make"/>
+    <package name="openssl"/>
+    <package name="libopenssl1_0_0"/>
+    <package name="socat"/>
+  </packages>
+  <packages type="bootstrap">
+    <package name="filesystem"/>
+    <package name="glibc-locale"/>
+    <package name="module-init-tools"/>
+  </packages>
+</image>
