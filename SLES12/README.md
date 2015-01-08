@@ -2,9 +2,9 @@
 
 0. Download required ISOs
 
-    http://download.novell.com/ (SLES12, + SDK if you need packages from it)
+        http://download.novell.com/ (SLES12, + SDK if you need packages from it)
 
-Put the ISO files in the SLES12/ folder.
+    Put the ISO files in the SLES12/ folder.
 
 1. Create Kiwi image for docker
 
@@ -28,14 +28,12 @@ Put the ISO files in the SLES12/ folder.
 
 6. [optional] Copy ISO content to serve as local zypper repositories (by default there is none)
 
-Note: this adds ~3.5GB to the image.
+    Note: this adds ~3.5GB to the image.
 
-```bash
-ID=$(sudo docker run -d --privileged -v $(pwd):/workspace sles:12 bash -x -c 'mkdir -p /mnt/{core-1,sdk-1} && mkdir -p /repos && mount -o loop /workspace/SLES12-DVD1.iso /mnt/core-1 && cp -r /mnt/core-1 /repos/ && mount -o loop /workspace/SLES12-SDK-DVD1.iso /mnt/sdk-1 && cp -r /mnt/sdk-1 /repos/')
-sudo docker attach "$ID"
-sudo docker commit "$ID" sles:12-with-repo
-sudo docker save sles:12-with-repo | gzip > sles12-with-repo.tar.gz
-# later: gunzip sles12-with-repo.tar.gz | sudo docker load
-```
+        ID=$(sudo docker run -d --privileged -v $(pwd):/workspace sles:12 bash -x -c 'mkdir -p /mnt/{core-1,sdk-1} && mkdir -p /repos && mount -o loop /workspace/SLES12-DVD1.iso /mnt/core-1 && cp -r /mnt/core-1 /repos/ && mount -o loop /workspace/SLES12-SDK-DVD1.iso /mnt/sdk-1 && cp -r /mnt/sdk-1 /repos/')
+        sudo docker attach "$ID"
+        sudo docker commit "$ID" sles:12-with-repo
+        sudo docker save sles:12-with-repo | gzip > sles12-with-repo.tar.gz
+        # later: gunzip sles12-with-repo.tar.gz | sudo docker load
 
 7. Profit!
