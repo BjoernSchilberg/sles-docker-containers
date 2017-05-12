@@ -1,4 +1,7 @@
-This repository is a fork from https://github.com/openSUSE/docker-containers, with proper instructions to build Suse Linux Enterprise Server containers from SLES iso images available from  the Novell website.
+This repository is a fork https://github.com/crohr/sles-docker-containers which
+is a fork from  https://github.com/openSUSE/docker-containers, with proper
+instructions to build Suse Linux Enterprise Server containers from SLES iso
+images available from the Novell website.
 
 # Requirements
 
