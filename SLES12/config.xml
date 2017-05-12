@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<image schemaversion="6.1" name="sles-12-docker-guest">
+<image schemaversion="6.1" name="sles-12-sp2-guest">
   <description type="system">
-    <author>Cyril Rohr</author>
-    <contact>cyril.rohr@gmail.com</contact>
-    <specification>SLES12 docker image</specification>
+    <author>Bjoern Schilberg</author>
+    <contact>bjoern@intevation.de</contact>
+    <specification>SLES12 SP2 docker image</specification>
   </description>
   <preferences>
-    <type image="docker" container="os131">
+    <type image="docker" container="os422">
       <machine>
         <vmdisk/>
         <vmnic interface="eth0" mode="veth"/>
@@ -40,6 +40,8 @@
     <package name="openssl"/>
     <package name="libopenssl1_0_0"/>
     <package name="socat"/>
+    <package name="vim"/>
+    <package name="less"/>
   </packages>
   <packages type="bootstrap">
     <package name="filesystem"/>
